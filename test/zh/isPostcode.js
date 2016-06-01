@@ -9,10 +9,10 @@ describe('zh/isPostcode', () => {
   const wrongCodes = [undefined, null, ' ', '11000', '992876', '1100110'];
 
   it(`${codes} 都是正确的邮政编码`, () => {
-    codes.should.matchEach((item) => { should(isPostcode(item)).is.exactly(true); });
+    codes.should.matchEach((item) => { should(isPostcode(item)).ok(); });
   });
 
   it(`${wrongCodes} 都不是正确的邮政编码`, () => {
-    wrongCodes.should.matchEach((item) => { should(isPostcode(item)).is.exactly(false); });
+    wrongCodes.should.matchEach((item) => { should(isPostcode(item)).not.ok(); });
   });
 });

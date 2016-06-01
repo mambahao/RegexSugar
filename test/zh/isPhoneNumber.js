@@ -12,11 +12,11 @@ describe('zh/isMobilePhoneNumber', () => {
   const wrongNumbers = [undefined, null, ' ', '180456789o1', '189768765431', '1534567801'];
 
   it(`${numbers} 都是正确的手机号码`, () => {
-    numbers.should.matchEach((item) => { should(isMobilePhoneNumber(item)).is.exactly(true); });
+    numbers.should.matchEach((item) => { should(isMobilePhoneNumber(item)).ok(); });
   });
 
   it(`${wrongNumbers} 都是不正确的手机号码`, () => {
-    wrongNumbers.should.matchEach((item) => { should(isMobilePhoneNumber(item)).is.exactly(false); });
+    wrongNumbers.should.matchEach((item) => { should(isMobilePhoneNumber(item)).not.ok(); });
   });
 });
 
@@ -25,10 +25,10 @@ describe('zh/isFixedPhoneNumber', () => {
   const wrongNumbers = [undefined, null, ' ', '010-123456789', '12345-12345678', '[010]12345678'];
 
   it(`${numbers} 都是正确的固定电话号码`, () => {
-    numbers.should.matchEach((item) => { should(isFixedPhoneNumber(item)).is.exactly(true); });
+    numbers.should.matchEach((item) => { should(isFixedPhoneNumber(item)).ok(); });
   });
 
   it(`${wrongNumbers} 都是不正确的固定电话号码`, () => {
-    wrongNumbers.should.matchEach((item) => { should(isFixedPhoneNumber(item)).is.exactly(false); });
+    wrongNumbers.should.matchEach((item) => { should(isFixedPhoneNumber(item)).not.ok(); });
   });
 });

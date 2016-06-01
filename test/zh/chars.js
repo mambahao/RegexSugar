@@ -11,20 +11,20 @@ describe('zh/isAllChineseChars', () => {
   const wrongWords = [undefined, null, ' ', 'test', `${address.streetAddress()} ${address.secondaryAddress()}`];
 
   it(`${words} 都是正确的中文字符`, () => {
-    words.should.matchEach((item) => { should(isAllChineseChars(item)).is.exactly(true); });
+    words.should.matchEach((item) => { should(isAllChineseChars(item)).ok(); });
   });
 
   it(`${wrongWords} 都不完全是中文字符`, () => {
-    wrongWords.should.matchEach((item) => { should(isAllChineseChars(item)).is.exactly(false); });
+    wrongWords.should.matchEach((item) => { should(isAllChineseChars(item)).not.ok(); });
   });
 
   const ext = '［,!\\-a］';
 
   it(`${words} 排除 ${ext} 都是正确的中文字符`, () => {
-    words.should.matchEach((item) => { should(isAllChineseChars(`［${item}］`, ext)).is.exactly(true); });
+    words.should.matchEach((item) => { should(isAllChineseChars(`［${item}］`, ext)).ok(); });
   });
 
   it(`${wrongWords} 排除 ${ext} 都不完全是中文字符`, () => {
-    wrongWords.should.matchEach((item) => { should(isAllChineseChars(`${item}${ext}+`, ext)).is.exactly(false); });
+    wrongWords.should.matchEach((item) => { should(isAllChineseChars(`${item}${ext}+`, ext)).not.ok(); });
   });
 });

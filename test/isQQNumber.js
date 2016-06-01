@@ -9,10 +9,10 @@ describe('isQQNumber', () => {
   const wrongNumbers = [undefined, null, ' ', '1234', '012345'];
 
   it(`${numbers} 都是正确的 QQ 号码`, () => {
-    numbers.should.matchEach((item) => { should(isQQNumber(item)).is.exactly(true); });
+    numbers.should.matchEach((item) => { should(isQQNumber(item)).ok(); });
   });
 
   it(`${wrongNumbers} 都是不正确的 QQ 号码`, () => {
-    wrongNumbers.should.matchEach((item) => { should(isQQNumber(item)).is.exactly(false); });
+    wrongNumbers.should.matchEach((item) => { should(isQQNumber(item)).not.ok(); });
   });
 });

@@ -11,10 +11,10 @@ describe('isEmail', () => {
   ];
 
   it(`${email} 是正确的 EMAIL 地址`, () => {
-    should(isEmail(email)).is.exactly(true);
+    should(isEmail(email)).ok();
   });
 
   it(`${wrongEmails} 都是错误的 EMAIL 地址`, () => {
-    wrongEmails.should.matchEach((item) => { should(isEmail(item)).is.exactly(false); });
+    wrongEmails.should.matchEach((item) => { should(isEmail(item)).not.ok(); });
   });
 });
