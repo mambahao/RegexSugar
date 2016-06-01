@@ -2,7 +2,7 @@ const clearPunctuations = require('../lib').clearPunctuations;
 
 describe('clearPunctuations', () => {
   const canClearStrings = ['!"#$%&\'(){}=-~^|*:+;\\_', '　《》！（），－_'];
-  const cannotClearStrings = [' ', '1234567890123456', '210102198719102765', '012345'];
+  const cannotClearStrings = ['1, h. ', '1234567890123456', '210102198719102765', '012345'];
 
   it(`${canClearStrings} 都可以清理为空`, () => {
     canClearStrings.should.matchEach((item) => clearPunctuations(item).length === 0);
